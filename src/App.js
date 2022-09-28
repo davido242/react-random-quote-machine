@@ -17,12 +17,37 @@ const quoteData = [
   },
 ];
 
-function App() {
+const QuoteBox = ({ quote, handleNewQuote }) => (
+  <div id="quote-box">
+    <p id="text">{quote.text}</p>
+    <h2 id="author">{"Aurthor: " + quote.author}</h2>
+    <div className="actions">
+      <button id="new-quote" className="button" onClick={handleNewQuote}>
+        New Quote
+      </button>
+      <a
+        href="https://twitter.com/intent/tweet"
+        id="tweet-quote"
+        target="_blank"
+      >
+        Tweet
+      </a>
+    </div>
+  </div>
+);
+
+
+const Task = () => {
+    const getRandomIndex = () =>
+      Math.round(Math.random() * (quoteData.length - 1 - 0) + 0);
+  const [quote, setQuote] = React.useState(quoteData[getRandomIndex()]);
+  const handleNewQuote = () => {
+    setQuote(quoteData[getRandomIndex()]);
+  };
   return (
-    <div className="App">
-      <h1>Hello Random Shiiit</h1>
+    <div className="main">
+      <QuoteBox quote={quote} handleNewQuote={handleNewQuote} />
     </div>
   );
-}
-
-export default App;
+};
+export default Task;
