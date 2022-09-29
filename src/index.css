@@ -55,3 +55,17 @@ p {
   padding: 7px 10px;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  #quote-box {
+    height: 500px;
+    width: 340px;
+    border: 3px solid #335356;
+    padding: 100px 40px;
+  }
+  #author {
+    margin-top: 3rem;
+    border-top: 3px solid #9139b5;
+    padding-top: 1rem;
+  }
+}
